@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="format-detection" content="telephone=no">
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1999 08:21:57 GMT">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>第一个页面</title>
+    <link rel="shortcut icon" href="#" />
+    <% for (item of htmlWebpackPlugin.options.links) { %>
+        <% if (typeof item === 'string' || item instanceof String) { item = { href: item, rel: 'stylesheet' } } %>
+          <link<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>>
+    <% } %>
+
+    <% for (item of htmlWebpackPlugin.options.scripts) { %>
+        <% if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
+          <script<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script>
+        <% } %>
+</head>
+
+<body>
+    <div class="module_one_container" >
+        <p>count:&nbsp;<span id="number" ></span></p>
+        <p><button id="increase" >increase</button></p>
+        <p><button id="decrease" >decrease</button></p>
+        <p>
+            <ul id="list" >
+
+            </ul>
+        </p>
+        <p><button id="addName" >more names</button></p>
+    </div>
+
+</body>
+</html>
